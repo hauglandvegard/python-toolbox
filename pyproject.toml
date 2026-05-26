@@ -7,7 +7,7 @@ name = "python-toolbox"
 version = "0.0.1"
 description = "Personal Python utility library: scraping, strings, IO, datetime, and other general-purpose helpers."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 license = { text = "MIT" }
 authors = [
     { name = "Vegard Haugland", email = "hauglandvegard@gmail.com" },
@@ -18,9 +18,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 dependencies = []
 
@@ -64,7 +62,7 @@ skip_covered = false
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py314"
 src = ["src", "tests"]
 
 [tool.ruff.lint]
@@ -83,6 +81,6 @@ select = [
 "tests/*" = ["B011"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.14"
 strict = true
 files = ["src", "tests"]
