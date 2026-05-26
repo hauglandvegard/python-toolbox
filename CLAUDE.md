@@ -4,7 +4,7 @@ Project context for Claude Code. Drop this file and `.claude/` into a new projec
 
 ## Project
 
-`python-toolbox` — personal Python utility library for scraping, string manipulation, IO, datetime, and other general-purpose helpers. Intended to be hosted on GitHub and installed as a package into other projects via `pip install git+https://github.com/hauglandvegard/python-toolbox.git`. Stack: Python, `src/` layout, `pyproject.toml` build config.
+`python-toolbox` — personal Python utility library for scraping, string manipulation, IO, datetime, and other general-purpose helpers. Intended to be hosted on GitHub and installed as a package into other projects via `pip install git+https://github.com/hauglandvegard/python-toolbox.git`. Stack: Python 3.14+, `src/` layout, `pyproject.toml` (hatchling backend).
 
 Architecture reference: `/Users/vegard/Vault/vault/conversations/2026-05/26-01 Python Toolbox Project/architecture_guide.md`.
 
@@ -93,9 +93,13 @@ Log format: `<ISO-8601 time> <agent> <DEBUG|INFO|WARNING|ERROR|CRITICAL> <messag
 
 ### Commands
 
-- Test: `pytest` (TBD — configure in `pyproject.toml` when first test added).
-- Build: `python -m build` (TBD — fill `[build-system]` in `pyproject.toml`).
-- Linter / formatter: TBD.
+- **Target runtime:** Python 3.14+ (`requires-python = ">=3.14"`).
+- **Install (dev):** `pip install -e ".[dev]"`
+- **Test:** `pytest`
+- **Lint:** `ruff check .`
+- **Format:** `ruff format .`
+- **Type check:** `mypy` (strict mode, configured in `pyproject.toml`)
+- **Build:** `python -m build`
 
 ## Setup checklist for a fresh project
 
