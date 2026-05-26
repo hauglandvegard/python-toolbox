@@ -3,7 +3,7 @@ description: Refine a rough idea into an approved design document at docs/design
 argument-hint: [optional rough idea]
 ---
 
-Dispatch the `brainstorm` subagent via the Task tool. Pass the user's rough idea as starting context: $ARGUMENTS
+1. Dispatch the `brainstorm` subagent via the Task tool. Pass the user's rough idea as starting context: $ARGUMENTS
 
 The brainstorm agent will:
 - Ask clarifying questions about goal, constraints, users, success criteria
@@ -12,3 +12,5 @@ The brainstorm agent will:
 - Write the final approved design to `docs/design.md`
 
 Wait for brainstorm to complete. Surface its final report to the user.
+
+2. Invoke `planner` agent to make a concrete plan from the design.
