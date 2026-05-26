@@ -91,15 +91,23 @@ Log format: `<ISO-8601 time> <agent> <DEBUG|INFO|WARNING|ERROR|CRITICAL> <messag
   ```
 - Pass structured fields via the stdlib `extra=` parameter (e.g. `logger.info("Starting scrape", extra={"url": url})`). This stays stdlib-only but is consumable by `structlog` via `structlog.stdlib.ExtraAdder()` in the host app.
 
+### Tooling prerequisites
+
+- [`uv`](https://github.com/astral-sh/uv) — package + environment manager. All Python invocations go through `uv run` so the dev environment is reproducible without a manually activated venv.
+- [`just`](https://github.com/casey/just) — task runner. Canonical entry point for all developer commands; see `justfile`.
+
 ### Commands
 
 - **Target runtime:** Python 3.14+ (`requires-python = ">=3.14"`).
-- **Install (dev):** `pip install -e ".[dev]"`
-- **Test:** `pytest`
-- **Lint:** `ruff check .`
-- **Format:** `ruff format .`
-- **Type check:** `mypy` (strict mode, configured in `pyproject.toml`)
-- **Build:** `python -m build`
+- **Install (dev):** `just install` (= `uv pip install -e ".[dev]"`)
+- **Test:** `just test` (= `uv run pytest`)
+- **Lint + type check:** `just lint` (= `uv run ruff check . && uv run mypy`)
+- **Format:** `just format` (= `uv run ruff format .`)
+- **Full check (format + lint + test):** `just check`
+- **Build:** `just build` (= `uv run python -m build`)
+- **Clean caches/artifacts:** `just clean`
+
+Always prefer the `just` recipe over the raw command. If a recipe is missing, add it to `justfile` rather than inventing one-off invocations.
 
 ## Setup checklist for a fresh project
 

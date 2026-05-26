@@ -1,10 +1,10 @@
 # Default recipe: show available commands
 default:
-   @just --list
+    @just --list
 
 # Install the package in editable mode with dev dependencies
 install:
-   uv pip install -e ".[dev]"
+    uv pip install -e ".[dev]"
 
 # Format code using ruff
 format:
@@ -13,7 +13,7 @@ format:
 # Run linting checks and type checking
 lint:
     uv run ruff check .
-    uv run mypy src
+    uv run mypy
 
 # Run all tests
 test:
