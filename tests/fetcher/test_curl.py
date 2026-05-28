@@ -6,7 +6,7 @@ from collections.abc import Sequence
 import pytest
 
 from tests.fetcher._fakes import FakeAsyncSession, FakeCurlResponse
-from toolbox.fetcher import CurlFetcher, Response
+from toolbox.fetchers import CurlFetcher, Response
 from toolbox.limiters import rate_limit
 
 _HTTP_OK = 200

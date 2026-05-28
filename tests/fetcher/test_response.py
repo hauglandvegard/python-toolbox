@@ -4,7 +4,7 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from toolbox.fetcher import Response
+from toolbox.fetchers import Response
 
 
 def test_response_is_frozen() -> None:

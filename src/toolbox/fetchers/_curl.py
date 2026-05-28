@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from curl_cffi import requests
 
-from toolbox.fetcher._response import Response
+from toolbox.fetchers._response import Response
 
 if TYPE_CHECKING:
     from collections.abc import Mapping, Sequence
