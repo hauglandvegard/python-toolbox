@@ -19,6 +19,14 @@ lint:
 test:
     uv run pytest
 
+# Run mypy over the full project (src + tests) — includes Protocol-satisfaction checks
+typecheck-tests:
+    uv run mypy
+
+# Run coverage report (kept separate to keep just test fast)
+coverage:
+    uv run pytest --cov=toolbox --cov-report=term-missing
+
 # Run all quality checks (format, lint, type check, and test)
 check: format lint test
 

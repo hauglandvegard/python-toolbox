@@ -58,6 +58,10 @@ minversion = "8.0"
 addopts = "-ra --strict-markers --strict-config"
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = [
+    "live: real network / browser; opt-in via --live",
+    "slow: takes >1s wall-clock; skipped without --slow",
+]
 
 [tool.coverage.run]
 source = ["toolbox"]
@@ -89,9 +93,14 @@ select = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["B011"]
+"tests/*" = ["B011", "TC002"]
 
 [tool.mypy]
 python_version = "3.14"
 strict = true
 files = ["src", "tests"]
+
+[dependency-groups]
+dev = [
+    "pytest-asyncio>=1.4.0",
+]
