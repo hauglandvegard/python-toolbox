@@ -53,7 +53,7 @@ def test_ratelimit_equality() -> None:
 
 
 def test_ratelimit_hashable() -> None:
-    {rate_limit(10), rate_limit(10, per="min")}  # no raise
+    _ = {rate_limit(10), rate_limit(10, per="min")}  # no raise
 
 
 # ---------------------------------------------------------------------------
