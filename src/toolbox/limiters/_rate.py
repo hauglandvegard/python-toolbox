@@ -7,7 +7,7 @@ class RateLimit:
     calls: int
     seconds: int
 
-    def __post__init__(self):
+    def __post__init__(self) -> None:
         assert self.calls > 0
         assert self.seconds > 0
 
