@@ -1,7 +1,7 @@
 from typing import get_args
 
 import pytest
-from src.toolbox.limiters._rate import _UNIT_SECONDS, RateLimit, Unit, rate_limit
+from src.toolbox.limiters._rate import _UNIT_SECONDS, Unit, rate_limit
 
 # ---------------------------------------------------------------------------
 # _UNIT_SECONDS table test

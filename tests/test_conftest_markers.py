@@ -3,8 +3,6 @@
 import tomllib
 from pathlib import Path
 
-import pytest
-
 # ---------------------------------------------------------------------------
 # Marker registration (pyproject.toml)
 # ---------------------------------------------------------------------------
