@@ -1,3 +1,3 @@
-from toolbox.limiters._rate import rate_limit
+from toolbox.limiters._rate import RateLimit, rate_limit
 
-__all__ = ["rate_limit"]
+__all__ = ["RateLimit", "rate_limit"]

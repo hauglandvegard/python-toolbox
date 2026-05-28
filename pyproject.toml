@@ -95,6 +95,9 @@ select = [
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["B011", "TC002"]
 
+[tool.ruff.lint.pylint]
+max-args = 10
+
 [tool.mypy]
 python_version = "3.14"
 strict = true
