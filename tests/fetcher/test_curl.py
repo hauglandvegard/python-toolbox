@@ -1,3 +1,4 @@
+# pyright: reportPrivateUsage=false
 """Tests for CurlFetcher against a fake AsyncSession."""
 
 import logging
@@ -17,10 +18,11 @@ _PER_CALL_TIMEOUT = 5.0
 @pytest.fixture
 def fake_session(monkeypatch: pytest.MonkeyPatch) -> FakeAsyncSession:
     s = FakeAsyncSession()
-    monkeypatch.setattr(
-        "toolbox.fetcher._curl.requests.AsyncSession",
-        lambda **_: s,
-    )
+
+    def _factory(**_: object) -> FakeAsyncSession:
+        return s
+
+    monkeypatch.setattr("toolbox.fetchers._curl.requests.AsyncSession", _factory)
     return s
 
 
@@ -130,7 +132,7 @@ async def test_fetch_logs_debug_start(
     fake_session: FakeAsyncSession,
     caplog: pytest.LogCaptureFixture,
 ) -> None:
-    caplog.set_level(logging.DEBUG, logger="toolbox.fetcher._curl")
+    caplog.set_level(logging.DEBUG, logger="toolbox.fetchers._curl")
     async with CurlFetcher() as f:
         await f.fetch("https://example.com")
     matches = [r for r in caplog.records if r.message == "fetch start"]

@@ -10,7 +10,7 @@ class FakeCurlResponse:
 
     url: str = "https://example.com"
     status_code: int = 200
-    headers: dict[str, str] = field(default_factory=dict)
+    headers: dict[str, str] = field(default_factory=dict[str, str])
     content: bytes = b""
 
 

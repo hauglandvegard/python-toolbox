@@ -103,6 +103,15 @@ python_version = "3.14"
 strict = true
 files = ["src", "tests"]
 
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+extraPaths = ["src"]
+include = ["src", "tests"]
+exclude = [".venv", "**/__pycache__"]
+pythonVersion = "3.14"
+typeCheckingMode = "strict"
+
 [dependency-groups]
 dev = [
     "pytest-asyncio>=1.4.0",

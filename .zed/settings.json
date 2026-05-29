@@ -1,0 +1,24 @@
+{
+  "show_completions_on_input": true,
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright", "!pylyzer"]
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": "${workspaceFolder}/.venv/bin/python",
+          "analysis": {
+            "extraPaths": ["${workspaceFolder}/src"],
+            "typeCheckingMode": "basic",
+            "autoSearchPaths": true,
+            "useLibraryCodeForTypes": true,
+            "autoImportCompletions": true
+          }
+        }
+      }
+    }
+  }
+}
